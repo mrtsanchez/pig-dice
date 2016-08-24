@@ -1,0 +1,20 @@
+body {
+  margin-top: 30px;
+}
+
+.button-disable {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
+.game-over {
+display: none;
+}
+
+.game {
+  display: none;
+}

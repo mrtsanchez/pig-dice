@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <title>Pig Dice</title>
+  </head>
+
+  <body>
+    <div class="container welcome">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Welcome to Pig Dice!</h1>
+          <h3>Please enter your names:</h3>
+          <form id="names">
+            <div class="form-group">
+              <label for="name1">Player 1:</label>
+              <input type="text" id="name1" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name2">Player 2:</label>
+              <input type="text" id="name2" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Begin Game!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container game"> <!-- Game container -->
+      <div class="jumbotron">
+        <h1>Pig Dice Game</h1>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h1><span class="player1"></span></h1>
+              <button type="button" class="btn btn-primary" id="roll1">Roll the dice</button>
+              <button type="button" class="btn btn-primary" id="hold1">Hold</button>
+              <h3>Turn score: <span class="turn-score1"></span></h3>
+              <h2>Total score: <span class="total-score1"></span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h1><span class="player2"></span></h1>
+              <button type="button" class="btn btn-primary" id="roll2">Roll the dice</button>
+              <button type="button" class="btn btn-primary" id="hold2">Hold</button>
+              <h3>Turn score: <span class="turn-score2"></span></h3>
+              <h2>Total score: <span class="total-score2"></span></h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- Close game container -->
+
+    <div class="container game-over">     <!-- Game over container -->
+      <div class="jumbotron">
+        <h1>Congratulations <span class="winner"></span>!</h1>
+        <p>Hey <span class="loser"></span>, better luck next time.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Wow, what a match!</h3>
+              <p>That was easily one of the best performances I've seen out of <span class="winner"></span>this season, and I think it's safe to say that nobody could have expected the amount of heart we saw from <span class="loser"></span>.
+              <br><br>
+              <p><span id="moreHolder"></span> really played conservatively, something we should expect at this point in their career, with <span id="moreHoldsNum"></span> holds. Meanwhile <span id="lessHolder"></span>, a real maverick of the lot, held only <span id="lessHoldsNum"></span> times.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Game Statistics: </h3>
+              <ul>
+                <li>Turns: <span id="turn"></span></li>
+                <li><span class="player1"></span></li>
+                  <ul>
+                    <li>Rolls: <span id="player1-rolls"></span></li>
+                    <li>Holds: <span id="player1-holds"></span></li>
+                    <li>Ones: <span id="player1-ones"></span></li>
+                  </ul>
+                <li><span class="player2"></span></li>
+                  <ul>
+                    <li>Rolls: <span id="player2-rolls"></span></li>
+                    <li>Holds: <span id="player2-holds"></span></li>
+                    <li>Ones: <span id="player2-ones"></span></li>
+                  </ul>
+                </ul>
+
+
+
+                  <!-- holds:
+                  ones:  -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" id="playAgain" class="btn btn-primary btn-large btn-block">Play again!</button></p>
+        </div>
+      </div>
+
+    </div> <!-- Close game over container -->
+
+  </body>
+</html>
