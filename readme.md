@@ -1,15 +1,18 @@
-# Starter Pack
+# Pig Dice
 
-This is a starter pack for Epicodus Intro to Programming Projects.
+This is a program where two users can play Pig dice against each other or against the computer.
 
-## Installation
+## Specs
 
-Clone the repository and use it to start your own Epicodus daily projects. 
+| Behavior | Input | Output |
+|---|---|---|
+|User 1 rolls the dice and gets a number from 2 to 6 | Click roll the dice button | 3 |
+|User 1 rolls the dice and gets 1 | 1 | User 1 lose turn and go to user 2 |
 
 ## Credits
 
-Marta Sánchez
-
 This software is licensed under MIT license.
 
-Copyright (c) 2016 Marta Sanchez
+Copyright (c) 2016 *Jeremy Fryd* and Marta Sanchez
+
+https://coolors.co/262730-fbfbf2-77ba99-d33f49-fdfffc
