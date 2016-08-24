@@ -25,3 +25,16 @@ body {
 .statistics {
 font-family: 'Press Start 2P', cursive;
 }
+
+.comments {
+font-size: 2em;
+}
+
+.active {
+  background-color: #77BA99;
+}
+
+.inactive {
+  background-color: #77BA99;
+  opacity: .4;
+}

@@ -35,7 +35,7 @@ function changeFromTo(i,j){
 
 function endGame(turn, total, winner, loser) {
 
-  if ((turn + total) >= 12) {
+  if ((turn + total) >= 100) {
 
     $(".two-player-game").hide();
     $(".game-over").show();
