@@ -182,9 +182,7 @@ $(document).ready(function() {
     if ($("#name2").val()) {
       player2.playerName = $("#name2").val();
     }
-    else {
-      player2.playerName = $(".computer-button").val();
-    }
+    else {    }
     $(".players-screen").hide();
     $(".game-screen").show();
     $(".player1").text(player1.playerName);
@@ -194,6 +192,11 @@ $(document).ready(function() {
     $(".total-score1").text(player1.playerScore);
     $(".total-score2").text(player2.playerScore);
   });
+
+  $(".computer-button").click(function(event){
+    player2.playerName = $(this).val();
+  });
+
 
   $("#roll1").click(function(){
     rollDie(player1, player2);
