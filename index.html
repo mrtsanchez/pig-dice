@@ -43,31 +43,13 @@
               <label for="name2">Player 2:</label>
               <input type="text" id="name2" class="form-control">
             </div>
-            <button type="submit" class="btn btn-danger btn-lg btn-block">Begin Game!</button>
-            <button type="submit" class="btn btn-danger computer-button" id="easy" val="Light Blue">Easy</button>
-            <button type="button" class="btn btn-danger computer-button" id="hard" val="Deep Blue">Hard</button>
+            <button type="submit" class="btn btn-danger btn-lg btn-block second-player">Begin Game!</button>
+            <button type="submit" class="btn btn-danger computer-button" id="easy" value="Light Blue">Easy</button>
+            <button type="button" class="btn btn-danger computer-button" id="hard" value="Deep Blue">Hard</button>
           </form>
         </div>
       </div>
     </div>
-
-    <!-- <div class="container player">
-      <div class="jumbotron title">
-        <h1>Pig Dice Game</h1>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <form id="name">
-            <h3>Please enter your name:</h3>
-            <div class="form-group">
-              <input type="text" class="form-control name">
-            </div>
-            <button type="submit" class="btn btn-danger" id="easy">Easy</button>
-            <button type="button" class="btn btn-primary" id="hard">Hard</button>
-          </form>
-        </div>
-      </div>
-    </div> -->
 
     <div class="container game-screen"> <!-- Game container -->
       <div class="jumbotron title">
@@ -101,73 +83,6 @@
       </div>
     </div> <!-- Close game container -->
 
-
-
-    <!-- <div class="container two-player-game">  -->
-      <!-- <div class="jumbotron title">
-        <h1>Pig Dice Game</h1>
-      </div>
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h1><span class="player1"></span></h1>
-              <button type="button" class="btn btn-danger roll1">Roll the dice</button>
-              <button type="button" class="btn btn-danger hold1">Hold</button>
-              <h3>Turn score: <span class="turn-score1"></span></h3>
-              <h2>Total score: <span class="total-score1"></span></h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h1><span class="player2"></span></h1>
-              <button type="button" class="btn btn-danger roll2">Roll the dice</button>
-              <button type="button" class="btn btn-danger hold2">Hold</button>
-              <h3>Turn score: <span class="turn-score2"></span></h3>
-              <h2>Total score: <span class="total-score2"></span></h2>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>  -->
-
-    <!-- <div class="container one-player-game">  -->
-      <!-- <div class="jumbotron title">
-        <h1>Pig Dice Game</h1>
-      </div>
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h1><span class="player1"></span></h1>
-              <button type="button" class="btn btn-danger roll1">Roll the dice</button>
-              <button type="button" class="btn btn-danger hold1">Hold</button>
-              <h3>Turn score: <span class="turn-score1"></span></h3>
-              <h2>Total score: <span class="total-score1"></span></h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h1><span class="computer"></span></h1>
-
-              <h3>Turn score: <span class="turn-score2"></span></h3>
-              <h2>Total score: <span class="total-score2"></span></h2>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>  -->
-
     <div class="container results-screen">     <!-- Game over container -->
       <div class="jumbotron title">
         <h1>Congratulations <span class="winner"></span>!</h1>
@@ -179,8 +94,8 @@
             <div class="panel-body">
               <h1>Wow, what a match!</h1>
               <p>That was easily one of the best performances I've seen out of <span class="winner"></span> this season, and I think it's safe to say that nobody could have expected the amount of heart we saw from <span class="loser"></span>.</p>
-              <p id="holdParagraph"><span id="moreHolder"></span> really played conservatively, no surprise at this point in their career, with <span id="moreHoldsNum"></span> holds. <span id="lessHolder"></span>, meanwhile, a real maverick of the lot, held only <span id="lessHoldsNum"></span> times.</p>
-              <p id="onesParagraph"><span id="moreOnes"></span> really had poor luck this match, with the die coming up as a one <span id="moreOnesNum"></span> times, as opposed to only <span id="lessOnesNum"></span> ones for <span id="lessOnes"></span>. Oh how lady luck hath cast her favor!</p>
+              <p id="results1"><span id="stat-winner1"></span> really played conservatively, no surprise at this point in their career, with <span id="more1"></span> holds. <span id="stat-loser1"></span>, meanwhile, a real maverick of the lot, held only <span id="less1"></span> times.</p>
+              <p id="results2"><span id="stat-winner2"></span> really had poor luck this match, with the die coming up as a one <span id="more2"></span> times, as opposed to only <span id="less2"></span> ones for <span id="stat-loser2"></span>. Oh how lady luck hath cast her favor!</p>
             </div>
           </div>
         </div>

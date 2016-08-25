@@ -26,7 +26,7 @@ function rollDie(_activeTurn, _inactiveTurn){
   var roll = getRandom();
   _activeTurn.rolls += 1;
   _activeTurn.turnScore += roll;
-  if (_activeTurn.playerScore + _activeTurn.turnScore < 10){
+  if (_activeTurn.playerScore + _activeTurn.turnScore < 30){
     if (roll !== 1){
     } else {
       _activeTurn.turnScore = 0;
@@ -34,23 +34,31 @@ function rollDie(_activeTurn, _inactiveTurn){
       changeFromTo(_activeTurn, _inactiveTurn)
     }
   } else {
-    endGame();
+    endGame(_activeTurn.playerName, _inactiveTurn.playerName);
   }
 };
 
 function changeFromTo(_activeTurn,_inactiveTurn){
-    if (_activeTurn === player1) {
-      i = "1";
-      j = "2";
-    } else {
-      i = "2";
-      j = "1";
-    }
-    $("#roll" + i).addClass("button-disable");
-    $("#hold" + i).addClass("button-disable");
-    $("#roll" + j).removeClass("button-disable");
-    $("#hold" + j).removeClass("button-disable");
-    turns ++;
+  if (_activeTurn === player1) {
+    i = "1";
+    j = "2";
+  } else {
+    i = "2";
+    j = "1";
+  }
+
+  $("#roll" + i).addClass("button-disable");
+  $("#hold" + i).addClass("button-disable");
+  $("#roll" + j).removeClass("button-disable");
+  $("#hold" + j).removeClass("button-disable");
+  turns ++;
+
+  if (_inactiveTurn.playerName === "Light Blue") {
+    computerTurnEasy();
+  }
+  else if (_inactiveTurn.playerName === "Deep Blue") {
+    computerTurnHard();
+  }
 };
 
 function holdDie(_activeTurn, _inactiveTurn) {
@@ -60,9 +68,11 @@ function holdDie(_activeTurn, _inactiveTurn) {
   changeFromTo(_activeTurn, _inactiveTurn);
 };
 
-function endGame() {
+function endGame(winner, loser) {
   $(".game-screen").hide();
   $(".results-screen").show();
+  $(".winner").text(winner);
+  $(".loser").text(loser);
 
   for(i =0;i<=2;i++){
     $(".player1-stats"+i.toString()).text((player1.stats())[i]);
@@ -72,7 +82,46 @@ function endGame() {
     $(".player2-stats"+i.toString()).text((player2.stats())[i]);
   };
 
+  for(i =1;i<3;i++){
+    if((player1.stats())[i] > (player2.stats())[i]){
+      $("#stat-winner"+i.toString()).text(player1.playerName);
+      $("#stat-loser"+i.toString()).text(player2.playerName);
+      $("#more"+i.toString()).text((player1.stats())[i]);
+      $("#less"+i.toString()).text((player2.stats())[i]);
+    } else if ((player1.stats())[i] < (player2.stats())[i]) {
+      $("#stat-winner"+i.toString()).text(player2.playerName);
+      $("#stat-loser"+i.toString()).text(player1.playerName);
+      $("#less"+i.toString()).text((player1.stats())[i]);
+      $("#more"+i.toString()).text((player2.stats())[i]);
+    } else {
+      $("#results"+i.toString()).hide();
+    }
+  }
+};
 
+function computerTurnEasy() {
+
+  rollDie(player2, player1);
+
+  if (player2.turnScore === 0){
+    changeFromTo(player2, player1)
+  } else {
+    $(".turn-score2").text(player2.turnScore);
+      setTimeout(function (){
+        rollDie(player2, player1);
+        if (player2.turnScore === 0){
+          changeFromTo(player2, player1)
+          $(".turn-score2").text(player2.turnScore);
+        } else {
+          $(".turn-score2").text(player2.turnScore);
+          setTimeout(function (){
+            holdDie(player2, player1)
+            $(".turn-score2").text(player2.turnScore);
+            $(".total-score2").text(player2.playerScore);
+          }, 2000);
+        }
+      }, 2000);
+  }
 };
 
 
@@ -132,6 +181,11 @@ $(document).ready(function() {
     holdDie(player2, player1);
     $(".turn-score2").text(player2.turnScore);
     $(".total-score2").text(player2.playerScore);
+  });
+
+  $("#playAgain").click(function(){
+    location.reload();
+
   });
 
 });
