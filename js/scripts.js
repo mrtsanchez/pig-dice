@@ -35,7 +35,7 @@ function changeFromTo(i,j){
 
 function endGame(turn, total, winner, loser) {
 
-  if ((turn + total) >= 100) {
+  if ((turn + total) >= 10) {
 
     $(".two-player-game").hide();
     $(".game-over").show();
@@ -199,6 +199,10 @@ $(document).ready(function() {
     $(".player2").text(player2.playerName);
     $(".roll2").addClass("button-disable");
     $(".hold2").addClass("button-disable");
+    $(".turn-score1").text("0");
+    $(".turn-score2").text("0");
+    $(".total-score1").text("0");
+    $(".total-score2").text("0");
   });
 
   // player 1 turn
