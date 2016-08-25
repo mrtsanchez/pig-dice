@@ -24,9 +24,18 @@ function getRandom() {
 
 function rollDie(_activeTurn, _inactiveTurn){
   var roll = getRandom();
+  if (_activeTurn === player1) {
+    i = "player1";
+    j = "player2";
+  } else {
+    i = "player2";
+    j = "player1";
+  }
+  $(".dice-image").hide();
+  $("#roll-image-"+i).append("<img src='img/dice" + roll.toString() + ".png' class='img-responsive dice-image'>");
   _activeTurn.rolls += 1;
   _activeTurn.turnScore += roll;
-  if (_activeTurn.playerScore + _activeTurn.turnScore < 30){
+  if (_activeTurn.playerScore + _activeTurn.turnScore < 50){
     if (roll !== 1){
     } else {
       _activeTurn.turnScore = 0;
@@ -47,10 +56,14 @@ function changeFromTo(_activeTurn,_inactiveTurn){
     j = "1";
   }
 
+  $(".dice-image").hide();
+
   $("#roll" + i).addClass("button-disable");
   $("#hold" + i).addClass("button-disable");
+  $("#panel-player" + i).addClass("panel-disable");
   $("#roll" + j).removeClass("button-disable");
   $("#hold" + j).removeClass("button-disable");
+  $("#panel-player" + j).removeClass("panel-disable");
   turns ++;
 
   if (_inactiveTurn.playerName === "Light Blue") {
@@ -70,9 +83,11 @@ function holdDie(_activeTurn, _inactiveTurn) {
 
 function endGame(winner, loser) {
   $(".game-screen").hide();
+  $(".footer").hide();
   $(".results-screen").show();
   $(".winner").text(winner);
   $(".loser").text(loser);
+
 
   for(i =0;i<=2;i++){
     $(".player1-stats"+i.toString()).text((player1.stats())[i]);
@@ -124,6 +139,25 @@ function computerTurnEasy() {
   }
 };
 
+function computerTurnHard() {
+
+  rollDie(player2, player1);
+
+  if (player2.turnScore === 0){
+    changeFromTo(player2, player1)
+  } else if (player2.turnScore < ((100-player2.playerScore)/(100-player1.playerScore))*10) {
+    $(".turn-score2").text(player2.turnScore);
+      setTimeout(function (){
+        computerTurnHard()}, 2000);
+  } else {
+      $(".turn-score2").text(player2.turnScore);
+      setTimeout(function (){
+        holdDie(player2, player1)
+        $(".turn-score2").text(player2.turnScore);
+        $(".total-score2").text(player2.playerScore);
+      }, 2000);
+  }
+};
 
 //front-end logic
 

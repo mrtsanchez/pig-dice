@@ -32,6 +32,8 @@
         <h1>Pig Dice Game</h1>
       </div>
       <div class="row">
+        <div class="col-md-3">
+        </div>
         <div class="col-md-6">
           <form id="names">
             <h3>Please enter your name:</h3>
@@ -48,7 +50,10 @@
             <button type="button" class="btn btn-danger computer-button" id="hard" value="Deep Blue">Hard</button>
           </form>
         </div>
+        <div class="col-md-3">
+        </div>
       </div>
+
     </div>
 
     <div class="container game-screen"> <!-- Game container -->
@@ -57,20 +62,23 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="panel panel-default"> <!-- player 1 panel -->
+          <div class="panel panel-default" id="panel-player1"> <!-- player 1 panel -->
             <div class="panel-body">
+              <span id="roll-image-player1"></span>
               <h1><span class="player1"></span></h1>
               <button type="button" id="roll1" class="btn btn-danger">Roll the dice</button>
               <button type="button" id="hold1"class="btn btn-danger">Hold</button>
               <h3>Turn score: <span class="turn-score1"></span></h3>
               <h2>Total score: <span class="total-score1"></span></h2>
-            </div>
+
+          </div>
           </div>
         </div>
 
         <div class="col-md-6">
-          <div class="panel panel-default"> <!-- player 2 panel -->
+          <div class="panel panel-default panel-disable" id="panel-player2"> <!-- player 2 panel -->
             <div class="panel-body">
+              <span id="roll-image-player2"></span>
               <h1><span class="player2"></span></h1>
               <button type="button" id="roll2" class="btn btn-danger second-player button-disable">Roll the dice</button>
               <button type="button" id="hold2"class="btn btn-danger second-player button-disable">Hold</button>
@@ -136,6 +144,16 @@
       </div>
 
     </div> <!-- Close game over container -->
-
+    <div class="container">
+        <div class="jumbotron footer">
+          <h2>Pig dice rules:</h2>
+          <ul>
+            <li>If you roll a 1, you score nothing and it becomes the next player's turn.</li>
+            <li>If you roll any other number, it is added to your turn total and your turn continues.</li>
+            <li>If you choose to "hold", your turn total is added to your score, and it becomes the next player's turn.</li>
+            <li>The first player to score 50 or more points wins.</li>
+          </ul>
+        </div>
+    </div>
   </body>
 </html>
