@@ -13,6 +13,10 @@ var turns = 1;
 var player1 = new Player ();
 var player2 = new Player ();
 
+Player.prototype.stats = function() {
+  return [this.rolls, this.holds, this.ones];
+}
+
 function getRandom() {
   var roll = 1 + Math.floor(Math.random() * 6);
   return roll;
@@ -22,7 +26,7 @@ function rollDie(_activeTurn, _inactiveTurn){
   var roll = getRandom();
   _activeTurn.rolls += 1;
   _activeTurn.turnScore += roll;
-  if (_activeTurn.playerScore + _activeTurn.turnScore < 20){
+  if (_activeTurn.playerScore + _activeTurn.turnScore < 10){
     if (roll !== 1){
     } else {
       _activeTurn.turnScore = 0;
@@ -60,28 +64,17 @@ function endGame() {
   $(".game-screen").hide();
   $(".results-screen").show();
 
-  var stats = ["rolls", "ones", "holds"];
+  for(i =0;i<=2;i++){
+    $(".player1-stats"+i.toString()).text((player1.stats())[i]);
+  };
 
-  i = 0
-
-  while (i <= 2){
-
-  }
-
-
-
-  // statsPlayer1 = ["name", "rolls", "ones", "holds"];
-  // statsPlayer1.forEach(function(_stat) {
-  //   $("#player1-" + _stat).text(player1. + _stat);
-  // });
-  // statsPlayer2 = ["name", "rolls", "ones", "holds"];
-  // statsPlayer2.forEach(function(_stat) {
-  //   $("#player2-" + _stat).text(player2. + _stat);
-  // });
-// };
+  for(i =0;i<=2;i++){
+    $(".player2-stats"+i.toString()).text((player2.stats())[i]);
+  };
 
 
 };
+
 
 //front-end logic
 

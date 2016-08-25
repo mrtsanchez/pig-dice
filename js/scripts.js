@@ -41,7 +41,7 @@ function endGame(turn, total, winner, loser) {
     $(".two-player-game").hide();
     $(".one-player-game").hide();
     $(".game-over").show();
-    $(".winner").text(winner);
+    stats1(winner);
     $(".loser").text(loser);
     $("#turn").text(turns);
     $(".player1").text(player1.playerName);
