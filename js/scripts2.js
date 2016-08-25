@@ -144,6 +144,7 @@ function computerTurnHard() {
   rollDie(player2, player1);
 
   if (player2.turnScore === 0){
+    $(".turn-score2").text(player2.turnScore);
     changeFromTo(player2, player1)
   } else if (player2.turnScore < ((100-player2.playerScore)/(100-player1.playerScore))*10) {
     $(".turn-score2").text(player2.turnScore);
