@@ -14,5 +14,3 @@ This is a program where two users can play Pig dice against each other or agains
 This software is licensed under MIT license.
 
 Copyright (c) 2016 *Jeremy Fryd* and Marta Sanchez
-
-https://coolors.co/262730-fbfbf2-77ba99-d33f49-fdfffc

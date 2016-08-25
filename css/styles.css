@@ -1,6 +1,6 @@
 body {
   margin-top: 30px;
-  background-color: #FDFFFC;
+  background-color: #FBFBF2;
 }
 
 .button-disable {
@@ -12,14 +12,13 @@ body {
   pointer-events: none;
 }
 
-
 .players, .player, .two-player-game, .one-player-game, .game-over {
   display: none;
 }
 
 .title {
   color: white;
-  background-color: #262730;
+  background-color: #007EA7;
 }
 
 .statistics {
@@ -37,4 +36,8 @@ font-size: 2em;
 .inactive {
   background-color: #77BA99;
   opacity: .4;
+}
+
+.hold-picture {
+  margin-bottom: 10px;
 }
