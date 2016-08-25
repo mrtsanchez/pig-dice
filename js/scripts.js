@@ -24,20 +24,22 @@ var moreHolds = 0;
 var lessHolds = 0;
 var moreOnes = 0;
 var lessOnes = 0;
+var game = 0;
 
 function changeFromTo(i,j){
-    $(".roll" + i.toString()).addClass("button-disable");
-    $(".hold" + i.toString()).addClass("button-disable");
-    $(".roll" + j.toString()).removeClass("button-disable");
-    $(".hold" + j.toString()).removeClass("button-disable");
+    $("#roll" + i.toString()).addClass("button-disable");
+    $("#hold" + i.toString()).addClass("button-disable");
+    $("#roll" + j.toString()).removeClass("button-disable");
+    $("#hold" + j.toString()).removeClass("button-disable");
     turns ++;
 };
 
 function endGame(turn, total, winner, loser) {
 
-  if ((turn + total) >= 10) {
+  if ((turn + total) >= 50) {
 
     $(".two-player-game").hide();
+    $(".one-player-game").hide();
     $(".game-over").show();
     $(".winner").text(winner);
     $(".loser").text(loser);
@@ -90,7 +92,7 @@ function rollDie(user1, user2){
     user1.turnScore += roll;
     endGame(user1.turnScore, user1.playerScore, user1.playerName, user2.playerName);
   }
-  else {
+  else if (roll === 1){
     user1.turnScore = 0;
     user1.ones += 1;
     if (user2 === player2) {
@@ -98,8 +100,10 @@ function rollDie(user1, user2){
     } else if (user2 === player1) {
       changeFromTo(2,1);
     } else if (user2 === computerEasy) {
+      changeFromTo(1,2);
       computerTurnEasy();
     } else if (user2 === computerHard) {
+      changeFromTo(1,2);
       computerTurnHard();
     }
   }
@@ -115,45 +119,54 @@ function holdDie(user1, user2) {
 function computerTurnEasy() {
   for (var i = 1; i <= 2; i++) {
     rollDie(computerEasy, player1);
+    console.log(computerEasy)
+    $(".turn-score2").text(computerEasy.turnScore);
     if (computerEasy.turnScore === 0) {
       break;
     }
-    else {
+    else if (i === 2) {
       holdDie(computerEasy, player1)
+      $(".turn-score2").text(computerEasy.turnScore);
+      $(".total-score2").text(computerEasy.playerScore);
+      changeFromTo(2,1);
     }
   };
-  rollDie(computerEasy, player1);
-  if (computerEasy.turnScore !== 0) {
-    rollDie(computerEasy, player1);
-  }
-  else {
-    changeFromTo (2,1);
-  }
-  computerEasy.playerScore += computerEasy.turnScore;
-  computerEasy.turnScore = 0;
 };
 
 
 function computerTurnHard() {
-
-
 };
 
-//frontend logic
+//front-end logic
 
 $(document).ready(function() {
 
+  $(".turn-score1").text("0");
+  $(".turn-score2").text("0");
+  $(".total-score1").text("0");
+  $(".total-score2").text("0");
+
   $("#two-players").click(function(){
+    // game = "two-player-mode";
     $(".welcome").hide();
     $(".players").show();
   });
 
   $("#one-player").click(function(){
+    // game = "one-player-mode";
     $(".welcome").hide();
     $(".player").show();
   });
 
   // Human vs Computer
+
+  $("#easy").click(function({
+
+    $(".players").hide();
+    $(".one-player-game").show();
+
+
+  });
 
   $("#name").submit(function(event){
     event.preventDefault();
@@ -165,10 +178,10 @@ $(document).ready(function() {
     $(".computer").text(computerEasy.playerName);
 
 
-    $(".roll1").click(function(){
-      rollDie(player1, computerEasy)
-      $(".turn-score1").text(player1.turnScore);
-    });
+    // $(".roll1").click(function(){
+    //   rollDie(player1, computerEasy)
+    //   $(".turn-score1").text(player1.turnScore);
+    // });
 
     $(".hold1").click(function(){
       holdDie(player1, computerEasy);
@@ -199,16 +212,18 @@ $(document).ready(function() {
     $(".player2").text(player2.playerName);
     $(".roll2").addClass("button-disable");
     $(".hold2").addClass("button-disable");
-    $(".turn-score1").text("0");
-    $(".turn-score2").text("0");
-    $(".total-score1").text("0");
-    $(".total-score2").text("0");
+
   });
 
   // player 1 turn
 
   $(".roll1").click(function(){
-    rollDie(player1,player2)
+    if (game === "two-player-mode"){
+      rollDie(player1,player2)
+    }
+    else if(game === "one-player-mode") {
+      rollDie(player1,computerEasy)
+    }
     $(".turn-score1").text(player1.turnScore);
   });
 

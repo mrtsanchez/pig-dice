@@ -4,21 +4,18 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.1.0.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
     <title>Pig Dice</title>
   </head>
 
   <body>
-    <div class="container welcome">
+    <div class="container welcome-screen">
       <div class="jumbotron title">
         <h1>Welcome to Pig Dice!</h1>
-
       </div>
-
       <div class="row">
-
         <div class="col-md-6">
           <img src="img/2pigs.png" alt="2 players" class="img-responsive center-block"/>
           <button type="button" class="btn btn-danger btn-lg btn-block" id="two-players">2 Players</button>
@@ -28,33 +25,33 @@
           <button type="button" class="btn btn-danger btn-lg btn-block" id="one-player">1 Player</button>
         </div>
       </div>
-
     </div>
 
-    <div class="container players"> <!-- Set players for 2 players game -->
+    <div class="container players-screen"> <!-- Set players -->
       <div class="jumbotron title">
         <h1>Pig Dice Game</h1>
       </div>
       <div class="row">
         <div class="col-md-6">
           <form id="names">
-            <h3>Please enter your names:</h3>
+            <h3>Please enter your name:</h3>
             <div class="form-group">
               <label for="name1">Player 1:</label>
-              <input type="text" class="form-control name1">
+              <input type="text" id="name1" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="form-group second-player">
               <label for="name2">Player 2:</label>
               <input type="text" id="name2" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Begin Game!</button>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Begin Game!</button>
+            <button type="submit" class="btn btn-danger computer-button" id="easy" val="Light Blue">Easy</button>
+            <button type="button" class="btn btn-danger computer-button" id="hard" val="Deep Blue">Hard</button>
           </form>
         </div>
-
       </div>
     </div>
 
-    <div class="container player"> <!-- Set player for 1 player game -->
+    <!-- <div class="container player">
       <div class="jumbotron title">
         <h1>Pig Dice Game</h1>
       </div>
@@ -65,18 +62,49 @@
             <div class="form-group">
               <input type="text" class="form-control name">
             </div>
-            <button type="submit" class="btn btn-primary" id="easy">Easy</button>
+            <button type="submit" class="btn btn-danger" id="easy">Easy</button>
             <button type="button" class="btn btn-primary" id="hard">Hard</button>
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
-
-
-
-    <div class="container two-player-game"> <!-- 2 player Game container -->
+    <div class="container game-screen"> <!-- Game container -->
       <div class="jumbotron title">
+        <h1>Pig Dice Game</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default"> <!-- player 1 panel -->
+            <div class="panel-body">
+              <h1><span class="player1"></span></h1>
+              <button type="button" id="roll1" class="btn btn-danger">Roll the dice</button>
+              <button type="button" id="hold1"class="btn btn-danger">Hold</button>
+              <h3>Turn score: <span class="turn-score1"></span></h3>
+              <h2>Total score: <span class="total-score1"></span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default"> <!-- player 2 panel -->
+            <div class="panel-body">
+              <h1><span class="player2"></span></h1>
+              <button type="button" id="roll2" class="btn btn-danger second-player button-disable">Roll the dice</button>
+              <button type="button" id="hold2"class="btn btn-danger second-player button-disable">Hold</button>
+              <h3>Turn score: <span class="turn-score2"></span></h3>
+              <h2>Total score: <span class="total-score2"></span></h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- Close game container -->
+
+
+
+    <!-- <div class="container two-player-game">  -->
+      <!-- <div class="jumbotron title">
         <h1>Pig Dice Game</h1>
       </div>
       <div class="row">
@@ -85,8 +113,8 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h1><span class="player1"></span></h1>
-              <button type="button" class="btn btn-primary roll1">Roll the dice</button>
-              <button type="button" class="btn btn-primary hold1">Hold</button>
+              <button type="button" class="btn btn-danger roll1">Roll the dice</button>
+              <button type="button" class="btn btn-danger hold1">Hold</button>
               <h3>Turn score: <span class="turn-score1"></span></h3>
               <h2>Total score: <span class="total-score1"></span></h2>
             </div>
@@ -97,8 +125,8 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h1><span class="player2"></span></h1>
-              <button type="button" class="btn btn-primary roll2">Roll the dice</button>
-              <button type="button" class="btn btn-primary hold2">Hold</button>
+              <button type="button" class="btn btn-danger roll2">Roll the dice</button>
+              <button type="button" class="btn btn-danger hold2">Hold</button>
               <h3>Turn score: <span class="turn-score2"></span></h3>
               <h2>Total score: <span class="total-score2"></span></h2>
             </div>
@@ -106,10 +134,10 @@
         </div>
 
       </div>
-    </div> <!-- Close 2 players game container -->
+    </div>  -->
 
-    <div class="container one-player-game"> <!-- Game container for one player -->
-      <div class="jumbotron title">
+    <!-- <div class="container one-player-game">  -->
+      <!-- <div class="jumbotron title">
         <h1>Pig Dice Game</h1>
       </div>
       <div class="row">
@@ -118,8 +146,8 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h1><span class="player1"></span></h1>
-              <button type="button" class="btn btn-primary roll1">Roll the dice</button>
-              <button type="button" class="btn btn-primary hold1">Hold</button>
+              <button type="button" class="btn btn-danger roll1">Roll the dice</button>
+              <button type="button" class="btn btn-danger hold1">Hold</button>
               <h3>Turn score: <span class="turn-score1"></span></h3>
               <h2>Total score: <span class="total-score1"></span></h2>
             </div>
@@ -138,9 +166,9 @@
         </div>
 
       </div>
-    </div> <!-- Close game container for one player -->
+    </div>  -->
 
-    <div class="container game-over">     <!-- Game over container -->
+    <div class="container results-screen">     <!-- Game over container -->
       <div class="jumbotron title">
         <h1>Congratulations <span class="winner"></span>!</h1>
         <p>Hey <span class="loser"></span>, better luck next time.</p>
@@ -188,7 +216,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <button type="button" id="playAgain" class="btn btn-primary btn-large btn-block">Play again!</button></p>
+          <button type="button" id="playAgain" class="btn btn-danger btn-large btn-block">Play again!</button></p>
         </div>
       </div>
 

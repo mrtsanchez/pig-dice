@@ -3,22 +3,22 @@ body {
   background-color: #FBFBF2;
 }
 
-.button-disable {
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  opacity: .65;
-  pointer-events: none;
-}
-
-.players, .player, .two-player-game, .one-player-game, .game-over {
-  display: none;
-}
-
 .title {
   color: white;
   background-color: #007EA7;
+}
+
+/*Hide Screen*/
+
+.players-screen, .game-screen, .results-screen {
+  display: none;
+}
+
+
+/*Results Screen*/
+
+.hold-picture {
+  margin-bottom: 10px;
 }
 
 .statistics {
@@ -29,6 +29,17 @@ font-family: 'Press Start 2P', cursive;
 font-size: 2em;
 }
 
+/*Javascript applied*/
+
+.button-disable {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
 .active {
   background-color: #77BA99;
 }
@@ -36,8 +47,4 @@ font-size: 2em;
 .inactive {
   background-color: #77BA99;
   opacity: .4;
-}
-
-.hold-picture {
-  margin-bottom: 10px;
 }
